@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports:
+      - "9000:8000"
+    environment:
+      MLFLOW_TRACKING_URI: http://host.docker.internal:5000
+      MODEL_NAME: iris-model
+      P_CURRENT: "0.8"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
