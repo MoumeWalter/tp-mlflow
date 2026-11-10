@@ -39,3 +39,9 @@ Mesures complémentaires :
 - reverse proxy (nginx, Caddy) avec HTTPS et authentification ;
 - accès restreint par pare-feu, VPN ou tunnel SSH ;
 - ne jamais exposer le port 5000 en clair sur Internet.
+
+## Lancement
+1. Serveur MLflow : `mlflow server --host 0.0.0.0 --port 5000 --allowed-hosts "localhost,localhost:*,127.0.0.1,127.0.0.1:*,host.docker.internal,host.docker.internal:*"`
+2. Entraînement : `python train.py 10` puis `python train.py 100`
+3. API : `docker compose up --build` (port 9000)
+4. Tests : `python test_api.py`
